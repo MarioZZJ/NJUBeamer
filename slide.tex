@@ -1,0 +1,189 @@
+%%=======================================================================
+% 模板名称：njubeamer
+% 模板版本：V0.2.0
+% 编译方式：xelatex slide.tex 或 latexmk slide.tex
+%%=======================================================================
+
+\documentclass[10pt]{beamer}
+
+% 使用南京大学 Beamer 主题
+% 可选参数：
+%   en            - 纯英文模式（不加载 ctex）
+%   sectiontoc    - 每节前显示目录（替代默认的节过渡页）
+%   nosectionpage - 关闭节过渡页
+\usetheme{njubeamer}
+
+% 额外宏包
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{calligra}
+
+% 图片路径
+\graphicspath{{figures/}}
+
+% 封面信息
+\titlegraphic{\includegraphics[height=1.5cm]{njuemblem.jpg}}
+\title[南京大学]{南京大学 Beamer 演示文稿模板}
+\subtitle{NJU Beamer Theme}
+\author[报告人]{报告人}
+\institute[南京大学]{南京大学~~计算机科学与技术系}
+\date{\today}
+
+\begin{document}
+
+% ==============================
+% 标题页
+% ==============================
+\frame{\titlepage}
+
+% ==============================
+% 目录
+% ==============================
+\begin{frame}
+  \frametitle{目录}
+  \tableofcontents
+\end{frame}
+
+% ==============================
+\section{模板介绍}
+% ==============================
+
+\begin{frame}{关于本模板}
+  \begin{itemize}
+    \item 这是南京大学 Beamer 演示文稿模板
+    \item 配色基于南京大学视觉形象规范化标准
+    \item 使用 Xe\LaTeX{} 编译，支持中文
+    \item 项目地址：\url{https://github.com/nju-lug/NJUBeamer}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{主题选项}
+  \begin{block}{基本用法}
+    在文档导言区使用：
+    \texttt{\textbackslash usetheme\{njubeamer\}}
+  \end{block}
+  \begin{block}{可选参数}
+    \begin{description}
+      \item[\texttt{en}] 纯英文模式（不加载 ctex 宏包）
+      \item[\texttt{sectiontoc}] 每节前自动显示目录
+      \item[\texttt{nosectionpage}] 关闭节过渡页
+    \end{description}
+  \end{block}
+\end{frame}
+
+
+% ==============================
+\section{排版示例}
+% ==============================
+
+\subsection{Block 环境}
+
+\begin{frame}{Block 环境}
+  \begin{block}{普通 Block}
+    使用南大紫作为标题背景色。
+  \end{block}
+
+  \begin{alertblock}{Alert Block}
+    使用南大洋红作为警告色。
+  \end{alertblock}
+
+  \begin{exampleblock}{Example Block}
+    使用南大蓝作为示例色。
+  \end{exampleblock}
+\end{frame}
+
+\subsection{公式排版}
+
+\begin{frame}{公式排版}
+  \begin{block}{无编号公式}
+    \[
+      J(\theta) = \mathbb{E}_{\pi_\theta}[G_t]
+        = \sum_{s \in \mathcal{S}} d^\pi(s)
+          \sum_{a \in \mathcal{A}} \pi_\theta(a|s) Q^\pi(s,a)
+    \]
+  \end{block}
+  \begin{block}{有编号公式}
+    \begin{equation}
+      E = mc^2
+    \end{equation}
+  \end{block}
+\end{frame}
+
+\subsection{表格}
+
+\begin{frame}{表格示例}
+  \begin{table}[htbp]
+    \centering
+    \caption{南京大学标准色}
+    \label{tab:njucolors}
+    \begin{tabular}{llc}
+      \toprule
+      颜色名称 & CMYK 值 & 用途 \\
+      \midrule
+      南大紫 & (50, 100, 0, 40) & 标准色 \\
+      南大洋红 & (5, 100, 55, 0) & 辅助色 \\
+      南大蓝 & (80, 50, 0, 0) & 辅助色 \\
+      南大黄 & (0, 30, 100, 0) & 辅助色 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\subsection{分栏与图片}
+
+\begin{frame}{分栏布局}
+  \begin{columns}
+    \begin{column}{.45\textwidth}
+      \begin{block}{左栏}
+        分栏布局适合并排展示内容。
+        \begin{equation*}
+          e^{i\pi} + 1 = 0
+        \end{equation*}
+      \end{block}
+    \end{column}
+    \begin{column}{.45\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=3cm]{njuemblem.jpg}
+        \caption{南京大学校标}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+% ==============================
+\section{可用颜色}
+% ==============================
+
+\begin{frame}{可用颜色}
+  本主题定义了以下南大标准色，可在文档中直接使用：
+  \begin{itemize}
+    \item \textcolor{njuviolet}{\textbf{njuviolet}} — 南大紫（标准色）
+    \item \textcolor{njumagenta}{\textbf{njumagenta}} — 南大洋红
+    \item \textcolor{njublue}{\textbf{njublue}} — 南大蓝
+    \item \textcolor{njuyellow}{\textbf{njuyellow}} — 南大黄
+  \end{itemize}
+
+  \vspace{1em}
+  使用方法：\texttt{\textbackslash textcolor\{njuviolet\}\{文字\}}
+\end{frame}
+
+
+% ==============================
+\section*{}
+% ==============================
+
+\begin{frame}
+  \begin{center}
+    \textcolor{njuviolet}{\Huge{谢谢！}}
+
+    \vspace{1cm}
+    {\Large Q \& A}
+  \end{center}
+\end{frame}
+
+\end{document}
